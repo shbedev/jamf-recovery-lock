@@ -2,7 +2,7 @@ from random import randint
 from computers import get_arm64, get_mgmt_id
 from recovery_lock import set_key
 
-computers_id = get_arm64('filter=general.name=="jdoe-mbp"') # remove argument to get all computers 
+computers_id = get_arm64('filter=general.name=="jdoe-mbp"') # remove filter argument to get all computers 
 computers_mgmt_id = get_mgmt_id(computers_id)
 
 for computer in computers_mgmt_id:

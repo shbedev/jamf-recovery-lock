@@ -1,1 +1,1 @@
-number_of_computers = 1000
+number_of_computers = 1000 # computer count in your organization
