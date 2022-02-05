@@ -10,4 +10,4 @@ How to use?
 
 The recovery key will now be showen under *Jamf Pro > Computer > Inventory > Security > Recovery Lock Password* (Show Password)
 
-Note that the Recovery Lock status will take time to update before it will show as Enabled 
+👉 Note that the Recovery Lock status will be showen as *Not Eanbled* until the next inventory collection.
