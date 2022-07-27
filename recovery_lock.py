@@ -28,7 +28,7 @@ def set_key(computer_name, management_id, recovery_lock_key):
     }
 
     try:
-        response = requests.request("POST", f'https://{instance_id}.jamfcloud.com/api/preview/mdm/commands', headers=headers, json=payload)
+        response = requests.request("POST", f'https://{instance_id}/api/preview/mdm/commands', headers=headers, json=payload)
 
         response.raise_for_status()
         

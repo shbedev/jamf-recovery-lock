@@ -17,7 +17,7 @@ def get_computer_count():
 
     try:
         response = requests.get(
-            url=f'https://{instance_id}.jamfcloud.com/api/v1/computers-inventory?section=HARDWARE&page=0&page-size=1&sort=id%3Aasc',
+            url=f'https://{instance_id}/api/v1/computers-inventory?section=HARDWARE&page=0&page-size=1&sort=id%3Aasc',
             headers=headers
         )
         response.raise_for_status()
@@ -47,7 +47,7 @@ def get_arm64(filter = None):
 
         try:
             response = requests.get(
-                url=f'https://{instance_id}.jamfcloud.com/api/v1/computers-inventory?section=HARDWARE&page={pageIndex}&page-size={computers_per_page}&sort=id%3Aasc&{filter}',
+                url=f'https://{instance_id}/api/v1/computers-inventory?section=HARDWARE&page={pageIndex}&page-size={computers_per_page}&sort=id%3Aasc&{filter}',
                 headers=headers
             )
             response.raise_for_status()
@@ -62,6 +62,7 @@ def get_arm64(filter = None):
                 computers_id.append(computer['id'])
 
     return computers_id
+    
 
 
 def get_mgmt_id(computers_id):
@@ -71,19 +72,18 @@ def get_mgmt_id(computers_id):
     Parameters:
         computers_id - (e.g. ['10', '12']]). List of Jamf computers id 
     """
+    computers_mgmt_id = []
 
     for pageIndex in range(number_of_pages):
         try:
             response = requests.get(
-                url = f'https://{instance_id}.jamfcloud.com/api/preview/computers?page={pageIndex}&page-size={computers_per_page}&sort=name%3Aasc',
+                url = f'https://{instance_id}/api/preview/computers?page={pageIndex}&page-size={computers_per_page}&sort=name%3Aasc',
                 headers=headers
             )
             response.raise_for_status()
             
         except requests.exceptions.HTTPError as err:
             raise SystemExit(err)
-
-        computers_mgmt_id = []
 
         computers = response.json()['results']
 
