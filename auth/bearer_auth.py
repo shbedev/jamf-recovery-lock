@@ -18,7 +18,7 @@ def request_token():
     } 
 
     try:
-        response = requests.request("POST", f'https://{instance_id}.jamfcloud.com/api/v1/auth/token', headers=headers)
+        response = requests.request("POST", f'https://{instance_id}/api/v1/auth/token', headers=headers)
         response.raise_for_status()
 
     except requests.exceptions.HTTPError as err:

@@ -14,4 +14,4 @@ Python script to set Recovery Lock key for Apple M1 computers.
 
 The recovery key will now be showen under *Jamf Pro > Computer > Inventory > Security > Recovery Lock Password* (Show Password)
 
-👉 Note that the Recovery Lock status will be showen as *Not Eanbled* until the next inventory collection.
+👉 Note that the Recovery Lock status will be shown as *Not Enabled* until the next inventory collection.
